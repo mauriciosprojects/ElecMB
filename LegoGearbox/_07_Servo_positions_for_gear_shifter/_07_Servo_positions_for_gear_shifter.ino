@@ -7,7 +7,7 @@
 // 3. Upload program and open Serial Monitor
 // 4. Manually shift gear shifter to third gear
 // 5. Attach servo motor to gear shifter
-// 6. Input numerical valuess to determine servo positions for each gear
+// 6. Input numerical values to determine servo positions for each gear
 // Note: Re-run this program if servo motor is detached and reattached
 
 #include <Servo.h>
