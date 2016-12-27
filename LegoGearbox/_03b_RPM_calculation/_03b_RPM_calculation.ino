@@ -1,13 +1,18 @@
-//PROGRAM 3: RPM CALCULATION
+//PROGRAM 3B: RPM CALCULATION
 
-//Setup: Connect sensor output to Arduino digital pin 2
-//Run program and open Serial Monitor or Serial Plotter
-//Drive gearbox with DC motor and shift gears
+// Setup:
+// 1. Connect sensor output to Arduino digital pin 2
+// Usage:
+// 1. Upload program and open Serial Monitor or Serial Plotter
+// 2. Run gearbox with DC motor
+// 3. Shift gearbox and observe RPM readings
+
 
 const int MAG_SENSOR_PIN = 2;
 volatile int mag_counter;
 volatile int mag_spin_time;
 volatile long mag_prev_timer;
+
 
 void setup() 
 {
@@ -19,12 +24,23 @@ void setup()
 }
 
 
+void interrupt() 
+{
+  long timer_now = millis();
+  mag_spin_time = timer_now - mag_prev_timer;
+  mag_counter++;
+
+  mag_prev_timer = timer_now;
+}
+
+
 void loop() 
 {
   //Variables
   int n;
   int dt;
   long prev_timer;
+  float rev_per_sec;
   float rpm;
   
   //Part 1: Get data from interrupt function
@@ -40,27 +56,17 @@ void loop()
 
   //Part 3: Calculate RPM revolutions per minute
   if ((dt > 0) && (dt <= 1000))
-    rpm = 1000.0 / dt;
+    rev_per_sec = 1000.0 / dt;
   else if (dt > 1000)
-    rpm = 1.0;
+    rev_per_sec = 1.0;
   else
-    rpm = 0.0;
-  rpm = rpm * 60;
+    rev_per_sec = 0.0;
+  rpm = rev_per_sec * 60;
     
-  //Part 3: Print RPM value and plot gridlines
+  //Part 4: Print RPM value and also plot some gridlines
   Serial.print(rpm);
   Serial.println(" 1000 2000 3000");
 
   delay(200);
-}
-
-
-void interrupt() 
-{
-  long timer_now = millis();
-  mag_spin_time = timer_now - mag_prev_timer;
-  mag_counter++;
-
-  mag_prev_timer = timer_now;
 }
 

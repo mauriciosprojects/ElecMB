@@ -1,11 +1,15 @@
 //PROGRAM 2: HALL EFFECT MAGNETIC SENSOR COUNTER
 
-//Setup: Connect sensor output to Arduino digital pin 2
-//Run program and open Serial Monitor or Serial Plotter
-//Move gearbox output shaft past sensor manually or attach DC motor
+// Setup:
+// 1. Connect sensor output to Arduino digital pin 2
+// Usage:
+// 1. Upload program and open Serial Monitor or Serial Plotter
+// 2. Spin gearbox output shaft manually or attach DC motor
+
 
 const int MAG_SENSOR_PIN = 2;
 volatile int counter;
+
 
 void setup() 
 {
@@ -16,6 +20,13 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(MAG_SENSOR_PIN), interrupt, FALLING);
 }
 
+
+void interrupt() 
+{
+  counter++;
+}
+
+
 void loop() 
 {
   int n;
@@ -25,10 +36,5 @@ void loop()
   
   Serial.println(n);
   delay(200);
-}
-
-void interrupt() 
-{
-  counter++;
 }
 

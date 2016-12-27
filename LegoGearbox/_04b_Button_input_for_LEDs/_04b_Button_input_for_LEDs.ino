@@ -1,8 +1,12 @@
-//PROGRAM 4: BUTTON INPUT TO CONTROL LEDS
+//PROGRAM 4B: BUTTON INPUT TO CONTROL LEDS
 
-//Setup: Connect LEDs to Arduino digital pins A1, A2, A3, A4
-//Run program and open Serial Monitor or Serial Plotter
-//Drive gearbox with DC motor and shift gears
+// Setup: 
+// 1. Connect LEDs to Arduino digital pins A1, A2, A3, A4
+// 2. Connect buttons to Arduino digital pins 9, 10, 11
+// Usage:
+// 3. Upload program and open Serial Monitor
+// 4. Press buttons and observe LEDs
+
  
 #define LED1   A1
 #define LED2   A2
@@ -28,7 +32,9 @@ void setup()
   pinMode(BTN3,INPUT_PULLUP);
 }
 
+
 int LED_selected = 1;
+
 
 void loop() 
 {
