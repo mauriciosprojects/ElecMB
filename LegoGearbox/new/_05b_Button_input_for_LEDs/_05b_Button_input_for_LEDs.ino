@@ -29,6 +29,7 @@ void setup()
 }
 
 int LED_selected = 1;
+int LED_direction = +1;
 
 void loop() 
 {
@@ -36,36 +37,27 @@ void loop()
   int b2 = digitalRead(BTN2);
   int b3 = digitalRead(BTN3);
 
-  if (b1 == LOW) LED_selected = 1;
-  if (b2 == LOW) LED_selected = 2;
-  if (b3 == LOW) LED_selected = 3;
+  if (b1 == LOW) LED_direction = -1;
+  if (b2 == LOW) LED_direction =  0;
+  if (b3 == LOW) LED_direction = +1;
 
-  if (LED_selected == 1)
-  {
-    digitalWrite(LED1,HIGH);
-    digitalWrite(LED2,LOW);
-    digitalWrite(LED3,LOW);    
-    digitalWrite(LEDRED,LOW);
-  }
-  if (LED_selected == 2)
-  {
-    digitalWrite(LED1,LOW);
-    digitalWrite(LED2,HIGH);
-    digitalWrite(LED3,LOW);    
-    digitalWrite(LEDRED,LOW);
-  }
-  if (LED_selected == 3)
-  {
-    digitalWrite(LED1,LOW);
-    digitalWrite(LED2,LOW);
-    digitalWrite(LED3,HIGH);    
-    digitalWrite(LEDRED,LOW);
-  }
+  digitalWrite(LED1,LOW);
+  digitalWrite(LED2,LOW);
+  digitalWrite(LED3,LOW);    
+  digitalWrite(LEDRED,LOW);
+  
+  if (LED_selected == 1) digitalWrite(LED1,HIGH);
+  if (LED_selected == 2) digitalWrite(LED2,HIGH);
+  if (LED_selected == 3) digitalWrite(LED3,HIGH);
+  if (LED_selected == 4) digitalWrite(LEDRED,HIGH);
 
-  Serial.print(b1); Serial.print(" ");
-  Serial.print(b2); Serial.print(" ");
-  Serial.print(b3); Serial.print(" ");
-  Serial.println();
+  LED_selected = LED_selected + LED_direction;
+  if (LED_selected < 1) LED_selected = 4;
+  if (LED_selected > 4) LED_selected = 1;
+  
+  Serial.print(LED_selected);
+  Serial.print(" ");
+  Serial.println(LED_direction);
   
   delay(200);
 }

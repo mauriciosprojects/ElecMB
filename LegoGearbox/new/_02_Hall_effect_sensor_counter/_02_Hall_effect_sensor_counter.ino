@@ -1,4 +1,4 @@
-//PROGRAM 1B: HALL EFFECT MAGNETIC SENSOR COUNTER
+//PROGRAM 2: HALL EFFECT MAGNETIC SENSOR COUNTER
 
 //Setup: Connect sensor output to Arduino digital pin 2
 //Run program and open Serial Monitor or Serial Plotter

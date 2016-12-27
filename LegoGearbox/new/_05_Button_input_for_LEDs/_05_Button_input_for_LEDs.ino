@@ -65,7 +65,7 @@ void loop()
   Serial.print(b1); Serial.print(" ");
   Serial.print(b2); Serial.print(" ");
   Serial.print(b3); Serial.print(" ");
-  Serial.println();
+  Serial.println(LED_selected);
   
   delay(200);
 }
