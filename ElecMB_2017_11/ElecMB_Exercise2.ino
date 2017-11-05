@@ -1,7 +1,7 @@
 
 //========== Electronics MB Class Exercise 2 ==========
 
-//Purpose: LEDs moves according to one button input
+//Purpose: LEDs move according to one button input
 //Date: November 4, 2016
 
 
@@ -46,7 +46,7 @@ void loop()
   //Check button 1 and change counter accordingly
   if(digitalRead(BTN1)==LOW)
   {
-      //If button is pressed, increment counter variable and wrap
+      //If button is pressed, decrement counter variable and wrap
       counter = counter - 1;
       if(counter < 1) counter = 4;
   }

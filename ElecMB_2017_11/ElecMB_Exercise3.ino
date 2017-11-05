@@ -57,7 +57,7 @@ void loop()
   Monkey.print("Checking button... ");
   if(digitalRead(BTN1)==LOW)
   {
-      //If button is pressed, increment counter variable and wrap
+      //If button is pressed, decrement counter variable and wrap
       Monkey.print("MONKEY BORED, GO BACKWARDS... ");
       counter = counter - 1;
       if(counter < 1) 
