@@ -4,9 +4,9 @@
 
 2 - [ElecMB_Exercise2.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise2.ino) - LEDs blink in sequence according to one button input
 
-3 - [ElecMB_Exercise3.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise3.ino) - LEDs blink in sequence according to one button input, with extra monkey messages
+3 - [ElecMB_Exercise4.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise3.ino) - LED moves according to two button input 
 
-4 - [ElecMB_Exercise4.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise4.ino) - LED moves according to two button input 
+4 - [ElecMB_Exercise3.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise4.ino) - LEDs blink in sequence according to one button input, also print messages
 
 5 - [ElecMB_Exercise5.ino](https://bitbucket.org/mtejada11/arduino/src/master/ElecMB_2017_11/ElecMB_Exercise5.ino) - Read photoresistor input and print to serial monitor 
 

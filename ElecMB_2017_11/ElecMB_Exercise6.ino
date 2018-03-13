@@ -2,7 +2,7 @@
 //========== Electronics MB Class Exercise 6 ==========
 
 //Purpose: LEDs blink according to photoresistor input
-//Date: November 4, 2016
+//Date: November 4, 2017
 
 
 //--- Constant definitions ---
@@ -41,7 +41,7 @@ int light = 0;
 
 void loop()  
 {
-  //Check if value of light variable
+  //Check value of light variable
   if(light > 700)
   {
     //Increment position variable

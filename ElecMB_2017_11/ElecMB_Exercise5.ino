@@ -2,7 +2,7 @@
 //========== Electronics MB Class Exercise 5 ==========
 
 //Purpose: Read photoresistor input and print to serial monitor
-//Date: November 4, 2016
+//Date: November 4, 2017
 
 
 //---------- Setup routine to run once ----------

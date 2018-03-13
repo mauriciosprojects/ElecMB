@@ -2,7 +2,7 @@
 //========== Electronics MB Class Exercise 1 ==========
 
 //Purpose: LEDs blink in sequence
-//Date: November 4, 2016
+//Date: November 4, 2017
 
 
 //--- Constant definitions ---

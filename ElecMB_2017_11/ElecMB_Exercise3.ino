@@ -1,18 +1,17 @@
 
 //========== Electronics MB Class Exercise 3 ==========
 
-//Purpose: LED moves according to one button input
-//Date: November 4, 2016
+//Purpose: LED moves according to two button input
+//Date: November 4, 2017
 
 
 //--- Constant definitions ---
-#define LED1 12
-#define LED2 11
-#define LED3 10
-#define LED4 9
+#define LED1 9
+#define LED2 10
+#define LED3 11
+#define LED4 12
 #define BTN1 2
 #define BTN2 3
-#define Monkey Serial
 
 
 //---------- Setup routine to run once ----------
@@ -28,58 +27,44 @@ void setup()
   pinMode(BTN2,INPUT_PULLUP);
 
   //Serial communication with computer over USB
-  Monkey.begin(9600);
-  Monkey.println("Hello");
-  delay(1000);
+  Serial.begin(115200);
+  Serial.println("Hello");
 }
 
 
 //--- Global variable ---
-int counter = 1;
+int position = 2;
 
 
 //---------- Loop routine that runs repeatedly ----------
 
 void loop()  
 {
-  //Turn on one LED according to counter
-  if(counter==1) digitalWrite(LED1,HIGH);
-  if(counter==2) digitalWrite(LED2,HIGH);
-  if(counter==3) digitalWrite(LED3,HIGH);
-  if(counter==4) digitalWrite(LED4,HIGH);
-  delay(200);
-
-  //Send counter variable value to print on Serial Monitor
-  Monkey.print(counter);
-  Monkey.print(" --- ");
-
-  //Check button 1 and change counter accordingly
-  Monkey.print("Checking button... ");
+  //Check button 1
   if(digitalRead(BTN1)==LOW)
   {
-      //If button is pressed, decrement counter variable and wrap
-      Monkey.print("MONKEY BORED, GO BACKWARDS... ");
-      counter = counter - 1;
-      if(counter < 1) 
-      {
-        Monkey.print("Reset!!!");
-        counter = 4;
-      }
-  }
-  else
-  {
-      //Otherwise if not pressed, increment counter variable and wrap
-      Monkey.print("I WANT BANANA... ");
-      counter = counter + 1;
-      if(counter > 4) 
-      {
-        Monkey.println("I WANT SMOOTHIE... ");
-        counter = 1;
-      }
+    //If pressed, decrement counter variable and limit
+    position = position - 1;
+    if(position<1) position = 1;
   }
 
-  //"print" statements up now all on same line, "println" ends line
-  Monkey.println();
+  //Check button 2
+  if(digitalRead(BTN2)==LOW)
+  {
+    //If pressed, increment counter variable and limit
+    position = position + 1;
+    if(position>4) position = 4; 
+  }
+
+  //Turn on one LED according to counter variable
+  if(position==1) digitalWrite(LED1,HIGH);
+  if(position==2) digitalWrite(LED2,HIGH);
+  if(position==3) digitalWrite(LED3,HIGH);
+  if(position==4) digitalWrite(LED4,HIGH);
+  delay(200);
+
+  //Send position variable value to print on computer Serial Monitor
+  Serial.println(position);
 
   //Turn off all LEDs for an instant (no delay)
   digitalWrite(LED1,LOW);

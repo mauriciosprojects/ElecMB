@@ -2,7 +2,7 @@
 //========== Electronics MB Class Exercise 2 ==========
 
 //Purpose: LEDs move according to one button input
-//Date: November 4, 2016
+//Date: November 4, 2017
 
 
 //--- Constant definitions ---

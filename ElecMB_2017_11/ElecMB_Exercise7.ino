@@ -2,7 +2,7 @@
 //========== Electronics MB Class Exercise 7 ==========
 
 //Purpose: Demostration with 9g micro servo motor
-//Date: November 4, 2016
+//Date: November 4, 2017
 
 
 #include <Servo.h>

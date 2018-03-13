@@ -1,15 +1,15 @@
 
 //========== Electronics MB Class Exercise 4 ==========
 
-//Purpose: LED moves according to two button input
-//Date: November 4, 2016
+//Purpose: LED moves according to one button input
+//Date: November 4, 2017
 
 
 //--- Constant definitions ---
-#define LED1 9
-#define LED2 10
-#define LED3 11
-#define LED4 12
+#define LED1 12
+#define LED2 11
+#define LED3 10
+#define LED4 9
 #define BTN1 2
 #define BTN2 3
 
@@ -28,43 +28,57 @@ void setup()
 
   //Serial communication with computer over USB
   Serial.begin(9600);
-  Serial.println("Yummy~");
+  Serial.println("Hello");
+  delay(1000);
 }
 
 
 //--- Global variable ---
-int position = 2;
+int counter = 1;
 
 
 //---------- Loop routine that runs repeatedly ----------
 
 void loop()  
 {
-  //Check button 1
-  if(digitalRead(BTN1)==LOW)
-  {
-    //If pressed, decrement counter variable and limit
-    position = position - 1;
-    if(position<1) position = 1;
-  }
-
-  //Check button 2
-  if(digitalRead(BTN2)==LOW)
-  {
-    //If pressed, increment counter variable and limit
-    position = position + 1;
-    if(position>4) position = 4; 
-  }
-
-  //Turn on one LED according to counter variable
-  if(position==1) digitalWrite(LED1,HIGH);
-  if(position==2) digitalWrite(LED2,HIGH);
-  if(position==3) digitalWrite(LED3,HIGH);
-  if(position==4) digitalWrite(LED4,HIGH);
+  //Turn on one LED according to counter
+  if(counter==1) digitalWrite(LED1,HIGH);
+  if(counter==2) digitalWrite(LED2,HIGH);
+  if(counter==3) digitalWrite(LED3,HIGH);
+  if(counter==4) digitalWrite(LED4,HIGH);
   delay(200);
 
-  //Send position variable value to print on computer Serial Monitor
-  Serial.println(position);
+  //Send counter variable value to print on Serial Monitor
+  Serial.print(counter);
+  Serial.print(" --- ");
+
+  //Check button 1 and change counter accordingly
+  Serial.print("Checking button... ");
+  if(digitalRead(BTN1)==LOW)
+  {
+      //If button is pressed, decrement counter variable and wrap
+      Serial.print("Going backwards... ");
+      counter = counter - 1;
+      if(counter < 1) 
+      {
+        Serial.print("Reset!");
+        counter = 4;
+      }
+  }
+  else
+  {
+      //Otherwise if not pressed, increment counter variable and wrap
+      Serial.print("Going forward... ");
+      counter = counter + 1;
+      if(counter > 4) 
+      {
+        Serial.println("Reset!");
+        counter = 1;
+      }
+  }
+
+  //"print" statements up now all on same line, "println" ends line
+  Serial.println();
 
   //Turn off all LEDs for an instant (no delay)
   digitalWrite(LED1,LOW);
