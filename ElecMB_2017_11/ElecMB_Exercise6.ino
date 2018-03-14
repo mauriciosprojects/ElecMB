@@ -27,8 +27,8 @@ void setup()
   pinMode(BTN2,INPUT_PULLUP);
   
   //Serial communication with computer over USB
-  Serial.begin(9600);
-  Serial.println("Yummy~");
+  Serial.begin(115200);
+  Serial.println("Hello");
 }
 
 
