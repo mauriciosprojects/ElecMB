@@ -12,7 +12,7 @@
 
 6 - [ElecMB_Exercise6.ino](https://github.com/mtejada11/ElecMB/blob/master/ElecMB_Exercise6.ino) - LEDs blink according to photoresistor input 
 
-7 - [ElecMB_Exercise7.ino](https://github.com/mtejada11/ElecMB/blob/master/ElecMB_Exercise7.ino) - Demostration with 9g micro servo motor
+7 - [ElecMB_Exercise7.ino](https://github.com/mtejada11/ElecMB/blob/master/ElecMB_Exercise7.ino) - Demonstration with 9g micro servo motor
 
 ### Circuit Schematic
 ![Circuit Schematic](https://github.com/mtejada11/ElecMB/raw/master/Circuit_1_Schematic.png)
