@@ -13,8 +13,8 @@ Servo servo1;
 
 void setup() 
 {
-    //Servo control pin connected to Arduino pin D7
-    servo1.attach(7);
+    //Servo control pin connected to Arduino pin D5
+    servo1.attach(5);
 }
 
 
